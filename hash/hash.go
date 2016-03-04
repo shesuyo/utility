@@ -37,3 +37,18 @@ func SHA512ByFile(file HashFile) string {
 	io.Copy(sha512h, file)
 	return fmt.Sprintf("%x", sha512h.Sum(nil))
 }
+
+//获取string的sha1(32位)
+func SHA1(str string) string {
+	sha1new := sha1.New()
+	sha1new.Write([]byte(str))
+	sha1hash := fmt.Sprintf("%x", sha1new.Sum(nil))
+	return sha1hash
+}
+
+func MD5(str string) string {
+	md5new := md5.New()
+	md5new.Write([]byte(str))
+	md5hash := fmt.Sprintf("%x", md5new.Sum(nil))
+	return md5hash
+}
