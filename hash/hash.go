@@ -46,6 +46,13 @@ func SHA1(str string) string {
 	return sha1hash
 }
 
+func SHA512(str string) string {
+	sha512new := sha512.New()
+	sha512new.Write([]byte(str))
+	sha1hash := fmt.Sprintf("%x", sha512new.Sum(nil))
+	return sha1hash
+}
+
 func MD5(str string) string {
 	md5new := md5.New()
 	md5new.Write([]byte(str))
